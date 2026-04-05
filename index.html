@@ -81,15 +81,6 @@
         .logo-img {
             height: 40px;
             width: auto;
-            filter: brightness(0) invert(1);
-        }
-        
-        .logo-text-brand {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            color: var(--white);
         }
         
         .logo-plus {
@@ -362,6 +353,48 @@
             font-weight: 400;
         }
         
+        /* Institutional Section */
+        .institutional {
+            padding: 3rem 1.5rem;
+            background: var(--black);
+            border-top: 1px solid rgba(196, 30, 58, 0.2);
+        }
+        
+        .institutional-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--red);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .institutional-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        
+        .institutional-logo {
+            height: 50px;
+            width: auto;
+        }
+        
+        .institutional-text {
+            text-align: center;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--cream);
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
         /* Footer */
         footer {
             padding: 2rem 1.5rem;
@@ -440,7 +473,7 @@
     <section class="hero">
         <div class="hero-content">
             <div class="logos">
-                <div class="logo-text-brand">CN CASAIS</div>
+                <img src="https://res.cloudinary.com/dlzrfhwin/image/upload/v1775401434/Logo_CN_Casais_Branca_iaclg1.png" alt="CN Casais" class="logo-img">
                 <span class="logo-plus">+</span>
                 <img src="https://www.comunidadedasnacoes.com.br/wp-content/uploads/2023/08/LogoCN_Vertical-1024x7441-1.png" alt="Comunidade das Nações" class="logo-img" style="height: 60px;">
             </div>
@@ -549,10 +582,23 @@
         <a href="https://ticketandgo.com.br/evento/curso-noivos" class="cta-primary">Inscrever-se Agora</a>
     </section>
 
+    <!-- Institutional -->
+    <section class="institutional">
+        <h3 class="institutional-title">Realização</h3>
+        <div class="institutional-logos">
+            <img src="https://res.cloudinary.com/dlzrfhwin/image/upload/v1775401434/Logo_CN_Casais_Branca_iaclg1.png" alt="CN Casais" class="institutional-logo">
+            <span class="logo-plus">+</span>
+            <img src="https://www.comunidadedasnacoes.com.br/wp-content/uploads/2023/08/LogoCN_Vertical-1024x7441-1.png" alt="Comunidade das Nações" class="institutional-logo" style="height: 70px;">
+        </div>
+        <p class="institutional-text">
+            O Curso de Noivos e Reciclagem para Casais é uma realização do CN Casais em parceria com a Comunidade das Nações, comprometidos em fortalecer famílias através de princípios sólidos e transformadores.
+        </p>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="footer-logos">
-            <div class="logo-text-brand">CN CASAIS</div>
+            <img src="https://res.cloudinary.com/dlzrfhwin/image/upload/v1775401434/Logo_CN_Casais_Branca_iaclg1.png" alt="CN Casais" class="logo-img" style="height: 35px;">
             <span class="logo-plus">+</span>
             <img src="https://www.comunidadedasnacoes.com.br/wp-content/uploads/2023/08/LogoCN_Vertical-1024x7441-1.png" alt="Comunidade das Nações" class="logo-img" style="height: 50px;">
         </div>
