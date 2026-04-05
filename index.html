@@ -84,6 +84,14 @@
             filter: brightness(0) invert(1);
         }
         
+        .logo-text-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--white);
+        }
+        
         .logo-plus {
             font-size: 1.5rem;
             font-weight: 300;
@@ -179,43 +187,6 @@
             font-size: 1.1rem;
             font-weight: 700;
             margin-top: 0.25rem;
-        }
-        
-        /* Price Section */
-        .price-section {
-            background: var(--white);
-            color: var(--black);
-            padding: 2rem 1.5rem;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        .price-label {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--red);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-        }
-        
-        .price-main {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--red);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-        
-        .price-installment {
-            font-size: 1rem;
-            font-weight: 500;
-            color: #666;
-            margin-bottom: 1rem;
         }
         
         .cta-primary {
@@ -422,14 +393,35 @@
             left: 0;
             right: 0;
             padding: 1rem 1.5rem;
-            background: linear-gradient(180deg, transparent 0%, var(--black) 20%);
+            background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 10, 0.95) 15%, var(--black) 30%);
             z-index: 99;
             transform: translateY(100%);
             animation: slideUpCTA 0.6s ease-out 1.5s forwards;
+            backdrop-filter: blur(10px);
         }
         
         @keyframes slideUpCTA {
             to { transform: translateY(0); }
+        }
+        
+        .floating-price {
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .floating-price-main {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--white);
+            letter-spacing: 0.5px;
+        }
+        
+        .floating-price-installment {
+            font-size: 0.75rem;
+            color: var(--cream);
+            opacity: 0.7;
+            margin-top: 0.25rem;
         }
         
         /* Pulse animation for price */
@@ -448,7 +440,7 @@
     <section class="hero">
         <div class="hero-content">
             <div class="logos">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5F-w1Za3ffoXmp0RsBKH4Amhe0zxZf0jWOA&s" alt="CN Casais" class="logo-img">
+                <div class="logo-text-brand">CN CASAIS</div>
                 <span class="logo-plus">+</span>
                 <img src="https://www.comunidadedasnacoes.com.br/wp-content/uploads/2023/08/LogoCN_Vertical-1024x7441-1.png" alt="Comunidade das Nações" class="logo-img" style="height: 60px;">
             </div>
@@ -484,13 +476,7 @@
         </div>
     </section>
 
-    <!-- Price Sticky -->
-    <section class="price-section">
-        <div class="price-label pulse">Investimento Por Casal</div>
-        <div class="price-main">R$ 297</div>
-        <div class="price-installment">ou 12x de R$ 29,70 no cartão</div>
-        <a href="https://ticketandgo.com.br/evento/curso-noivos" class="cta-primary">Garantir Minha Vaga</a>
-    </section>
+
 
     <!-- Value -->
     <section class="value-section">
@@ -566,7 +552,7 @@
     <!-- Footer -->
     <footer>
         <div class="footer-logos">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5F-w1Za3ffoXmp0RsBKH4Amhe0zxZf0jWOA&s" alt="CN Casais" class="logo-img" style="height: 35px;">
+            <div class="logo-text-brand">CN CASAIS</div>
             <span class="logo-plus">+</span>
             <img src="https://www.comunidadedasnacoes.com.br/wp-content/uploads/2023/08/LogoCN_Vertical-1024x7441-1.png" alt="Comunidade das Nações" class="logo-img" style="height: 50px;">
         </div>
@@ -575,7 +561,11 @@
 
     <!-- Floating CTA -->
     <div class="floating-cta">
-        <a href="https://ticketandgo.com.br/evento/curso-noivos" class="cta-primary">Garantir Vaga — R$ 297</a>
+        <div class="floating-price">
+            <div class="floating-price-main">R$ 297</div>
+            <div class="floating-price-installment">ou 12x de R$ 29,70</div>
+        </div>
+        <a href="https://ticketandgo.com.br/evento/curso-noivos" class="cta-primary">Garantir Minha Vaga</a>
     </div>
 </body>
 </html>
