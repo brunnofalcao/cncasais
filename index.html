@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Curso de Noivos — 18 de Abril</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        :root {
+            --red: #C41E3A;
+            --red-dark: #8B1529;
+            --black: #0A0A0A;
+            --white: #FFFFFF;
+            --cream: #F5F5F5;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
+            padding: 2rem 1.5rem 8rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></svg>');
+            opacity: 0.3;
+            animation: float 30s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-10px, 10px); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 0.2s forwards;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        .logo-img {
+            height: 40px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+        
+        .logo-plus {
+            font-size: 1.5rem;
+            font-weight: 300;
+            opacity: 0.6;
+        }
+        
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: slideUp 0.8s ease-out 0.4s forwards;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 900;
+            line-height: 1.1;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: slideUp 0.8s ease-out 0.6s forwards;
+        }
+        
+        .hero-subtitle .italic {
+            font-style: italic;
+        }
+        
+        .info-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            animation: slideUp 0.8s ease-out 0.8s forwards;
+        }
+        
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .info-row:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .info-icon {
+            font-size: 1.75rem;
+            width: 40px;
+            text-align: center;
+        }
+        
+        .info-text {
+            flex: 1;
+        }
+        
+        .info-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .info-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-top: 0.25rem;
+        }
+        
+        /* Price Section */
+        .price-section {
+            background: var(--white);
+            color: var(--black);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .price-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .price-main {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--red);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .price-installment {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-primary {
+            display: block;
+            width: 100%;
+            padding: 1.25rem;
+            background: var(--red);
+            color: var(--white);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 12px;
+            border: none;
+            box-shadow: 0 8px 24px rgba(196, 30, 58, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+        
+        .cta-primary:active {
+            transform: scale(0.98);
+            box-shadow: 0 4px 12px rgba(196, 30, 58, 0.6);
+        }
+        
+        /* Value Section */
+        .value-section {
+            padding: 3rem 1.5rem;
+            background: var(--black);
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            line-height: 1.2;
+        }
+        
+        .value-card {
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.15) 0%, rgba(10, 10, 10, 0.5) 100%);
+            border-radius: 16px;
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--red);
+            transform: translateX(-10px);
+            opacity: 0;
+            animation: slideInRight 0.6s ease-out forwards;
+        }
+        
+        @keyframes slideInRight {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .value-card:nth-child(2) { animation-delay: 0.1s; }
+        .value-card:nth-child(3) { animation-delay: 0.2s; }
+        .value-card:nth-child(4) { animation-delay: 0.3s; }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .value-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .value-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--cream);
+            font-weight: 400;
+        }
+        
+        /* Program Section */
+        .program-section {
+            padding: 3rem 1.5rem;
+            background: linear-gradient(180deg, var(--black) 0%, var(--red-dark) 100%);
+        }
+        
+        .program-item {
+            background: rgba(10, 10, 10, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--white);
+            opacity: 0;
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .program-item:nth-child(1) { animation-delay: 0.1s; }
+        .program-item:nth-child(2) { animation-delay: 0.15s; }
+        .program-item:nth-child(3) { animation-delay: 0.2s; }
+        .program-item:nth-child(4) { animation-delay: 0.25s; }
+        .program-item:nth-child(5) { animation-delay: 0.3s; }
+        .program-item:nth-child(6) { animation-delay: 0.35s; }
+        
+        .program-number {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: var(--red);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .program-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .program-text {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: var(--cream);
+            font-weight: 400;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 3rem 1.5rem;
+            background: var(--black);
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .cta-text {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--cream);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 2rem 1.5rem;
+            background: var(--black);
+            border-top: 1px solid rgba(196, 30, 58, 0.3);
+            text-align: center;
+        }
+        
+        .footer-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-text {
+            font-size: 0.8rem;
+            color: var(--cream);
+            opacity: 0.6;
+            font-weight: 400;
+        }
+        
+        /* Floating CTA Button */
+        .floating-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(180deg, transparent 0%, var(--black) 20%);
+            z-index: 99;
+            transform: translateY(100%);
+            animation: slideUpCTA 0.6s ease-out 1.5s forwards;
+        }
+        
+        @keyframes slideUpCTA {
+            to { transform: translateY(0); }
+        }
+        
+        /* Pulse animation for price */
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="logos">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5F-w1Za3ffoXmp0RsBKH4Amhe0zxZf0jWOA&s" alt="CN Casais" class="logo-img">
+                <span class="logo-plus">+</span>
+                <img src="https://www.comunidadedasnacoes.com.br/wp-content/uploads/2023/08/LogoCN_Vertical-1024x7441-1.png" alt="Comunidade das Nações" class="logo-img" style="height: 60px;">
+            </div>
+            
+            <h1 class="hero-title">Curso de Noivos</h1>
+            <h2 class="hero-subtitle">E Reciclagem<br><span class="italic">Para Casais</span></h2>
+            
+            <div class="info-box">
+                <div class="info-row">
+                    <div class="info-icon">📅</div>
+                    <div class="info-text">
+                        <div class="info-label">Data</div>
+                        <div class="info-value">18 de Abril (Sábado)</div>
+                    </div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-icon">📍</div>
+                    <div class="info-text">
+                        <div class="info-label">Local</div>
+                        <div class="info-value">CN Hípical Hall</div>
+                    </div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-icon">⏰</div>
+                    <div class="info-text">
+                        <div class="info-label">Horário</div>
+                        <div class="info-value">08h às 20h30</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Price Sticky -->
+    <section class="price-section">
+        <div class="price-label pulse">Investimento Por Casal</div>
+        <div class="price-main">R$ 297</div>
+        <div class="price-installment">ou 12x de R$ 29,70 no cartão</div>
+        <a href="https://ticketandgo.com.br/evento/curso-noivos" class="cta-primary">Garantir Minha Vaga</a>
+    </section>
+
+    <!-- Value -->
+    <section class="value-section">
+        <h2 class="section-title">Por Que Participar?</h2>
+        
+        <div class="value-card">
+            <div class="value-icon">💍</div>
+            <h3 class="value-title">Base Sólida</h3>
+            <p class="value-text">Construa fundamentos firmes para um casamento que honra a Deus e resiste aos desafios.</p>
+        </div>
+        
+        <div class="value-card">
+            <div class="value-icon">❤️</div>
+            <h3 class="value-title">Crescimento Real</h3>
+            <p class="value-text">Ferramentas práticas de comunicação, resolução de conflitos e intimidade verdadeira.</p>
+        </div>
+        
+        <div class="value-card">
+            <div class="value-icon">🤝</div>
+            <h3 class="value-title">Comunidade</h3>
+            <p class="value-text">Conecte-se com casais que compartilham dos mesmos valores e propósitos.</p>
+        </div>
+    </section>
+
+    <!-- Program -->
+    <section class="program-section">
+        <h2 class="section-title">O Que Você Vai Vivenciar</h2>
+        
+        <div class="program-item">
+            <div class="program-number">1</div>
+            <h3 class="program-title">Propósito do Casamento</h3>
+            <p class="program-text">O plano de Deus para a vida conjugal e o significado de se tornar uma só carne.</p>
+        </div>
+        
+        <div class="program-item">
+            <div class="program-number">2</div>
+            <h3 class="program-title">Comunicação</h3>
+            <p class="program-text">Ferramentas para diálogo autêntico, respeitoso e que constrói intimidade.</p>
+        </div>
+        
+        <div class="program-item">
+            <div class="program-number">3</div>
+            <h3 class="program-title">Vida Afetiva</h3>
+            <p class="program-text">A dimensão do amor conjugal com profundidade e santidade.</p>
+        </div>
+        
+        <div class="program-item">
+            <div class="program-number">4</div>
+            <h3 class="program-title">Finanças</h3>
+            <p class="program-text">Saúde financeira com sabedoria e responsabilidade compartilhada.</p>
+        </div>
+        
+        <div class="program-item">
+            <div class="program-number">5</div>
+            <h3 class="program-title">Conflitos</h3>
+            <p class="program-text">Transforme desafios em crescimento com estratégias bíblicas.</p>
+        </div>
+        
+        <div class="program-item">
+            <div class="program-number">6</div>
+            <h3 class="program-title">Espiritualidade</h3>
+            <p class="program-text">Vida de fé compartilhada, oração e missão em família.</p>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+        <h2 class="cta-title">Invista no Que Realmente Importa</h2>
+        <p class="cta-text">O casamento é uma das decisões mais importantes da sua vida. Prepare-se com seriedade e alegria.</p>
+        <a href="https://ticketandgo.com.br/evento/curso-noivos" class="cta-primary">Inscrever-se Agora</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logos">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5F-w1Za3ffoXmp0RsBKH4Amhe0zxZf0jWOA&s" alt="CN Casais" class="logo-img" style="height: 35px;">
+            <span class="logo-plus">+</span>
+            <img src="https://www.comunidadedasnacoes.com.br/wp-content/uploads/2023/08/LogoCN_Vertical-1024x7441-1.png" alt="Comunidade das Nações" class="logo-img" style="height: 50px;">
+        </div>
+        <p class="footer-text">&copy; 2026 Curso de Noivos. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Floating CTA -->
+    <div class="floating-cta">
+        <a href="https://ticketandgo.com.br/evento/curso-noivos" class="cta-primary">Garantir Vaga — R$ 297</a>
+    </div>
+</body>
+</html>
